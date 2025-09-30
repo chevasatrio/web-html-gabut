@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Jam Dunia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .time-zone {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: #3a3a3a;
+            border: 1px solid #5a5a5a;
+        }
+        .time-zone h3 {
+            color: #90ee90;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .time-zone .time-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⏱️ Live Jam Dunia</h1>
+        <p>Waktu Real-Time di Kota-Kota Besar</p>
+        
+        <p class="nav-link">
+            <a href="index.html">⬅️ Info Malang</a>
+            <a href="post_punk_rekomendasi.html">🎵 Post-Punk</a>
+            <a href="aboutme.html">👤 Tentang Saya</a>
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>Waktu Saat Ini</h2>
+        
+        <p>Lihatlah perbedaan waktu di pusat-pusat global.</p>
+
+        <div class="time-zone">
+            <h3>Jakarta, Indonesia (WIB)</h3>
+            <div id="time-jakarta" class="time-display">Loading...</div>
+        </div>
+
+        <div class="time-zone">
+            <h3>London, Inggris (GMT/BST)</h3>
+            <div id="time-london" class="time-display">Loading...</div>
+        </div>
+        
+        <div class="time-zone">
+            <h3>New York, AS (EST/EDT)</h3>
+            <div id="time-newyork" class="time-display">Loading...</div>
+        </div>
+        
+        <div class="time-zone">
+            <h3>Tokyo, Jepang (JST)</h3>
+            <div id="time-tokyo" class="time-display">Loading...</div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Live Jam Dunia. Waktu ditampilkan berdasarkan zona waktu sistem lokal.</p>
+        <p>© Tugas Pengembangan Aplikasi Website Cheva Satrio.</p>
+    </footer>
+    
+    <script>
+        function updateTime() {
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+
+            // Jakarta (Asia/Jakarta)
+            document.getElementById('time-jakarta').textContent = new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta', ...options });
+
+            // London (Europe/London)
+            document.getElementById('time-london').textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Europe/London', ...options });
+
+            // New York (America/New York)
+            document.getElementById('time-newyork').textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', ...options });
+
+            // Tokyo (Asia/Tokyo)
+            document.getElementById('time-tokyo').textContent = new Date().toLocaleTimeString('ja-JP', { timeZone: 'Asia/Tokyo', ...options });
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+
+</body>
+</html>
